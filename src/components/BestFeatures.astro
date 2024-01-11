@@ -1,0 +1,428 @@
+---
+import { Image } from "@astrojs/image/components";
+import ListBuilding from "../assets/img/list-building-schema.jpeg";
+import EvergreenCampaign from "../assets/img/evergreen-campaign.jpeg";
+import DripsenderBot from "../assets/img/Dripsender-Bot.jpg";
+import RewardListBuilding from "../assets/img/Reward-List-Building.jpg";
+import DiagramPOS from "../assets/img/crm.drawio.png";
+---
+
+<!-- @ts-ignore -->
+<div
+  x-data=`{
+    tab: null,
+    tabs: [],
+    scrolledLeft: true,
+    scrolledRight: false,
+    init() {
+         
+        this.tab = 'list-building'
+       console.log(this.tab)
+        this.updateScrollPosition()
+    },
+    changeTab(tab) {
+        if (this.tabs.includes(tab)) {
+            this.tab = tab
+            history.replaceState(null, null, '#' + tab)
+        }
+    },
+    scrollLeft() {
+        document.getElementById('feature-nav').scrollBy({ left: -200, behavior: 'smooth' })
+    },
+    scrollRight() {
+        document.getElementById('feature-nav').scrollBy({ left: 200, behavior: 'smooth' })
+    },
+    updateScrollPosition(event) {
+        const el = document.getElementById('feature-nav')
+        this.scrolledLeft = el.scrollLeft === 0
+        this.scrolledRight = (el.scrollWidth - el.offsetWidth) === el.scrollLeft
+    }
+}`
+  class="relative overflow-hidden py-16 md:pt-48 dark:bg-gray-900"
+  
+>
+  <span
+    class="hidden absolute bg-radial-gradient opacity-[.15] pointer-events-none lg:inline-flex right-[-20%] top-0 w-[640px] h-[640px]"
+  ></span>
+  <div class="relative max-w-screen-xl w-full mx-auto px-5">
+    <h2 class="text-4xl font-bold max-w-lg md:text-5xl dark:text-white">
+      Everything you need to be amazing.
+    </h2>
+    <p class="mt-6 text-gray-700 leading-relaxed max-w-3xl dark:text-gray-300">
+      Out of the box, Dripsender memiliki semua Fitur untuk kebutuhan Whatsapp
+      Marketing. Mulai dari List Building, Evergreen Campaign, Broadcast
+      Campaign with AI, Automation with BOT, Chat GPT Assistant, CRM, hingga Online POS.
+    </p>
+
+    <div
+      class="z-10 relative lg:h-[550px] max-w-[1100px] mt-12 flex flex-col lg:flex-row bg-white border border-gray-200 overflow-hidden"
+    >
+      <nav class="w-full flex relative lg:max-w-xs">
+        <div
+          class="hidden lg:block pointer-events-none absolute top-0 w-5 lg:w-full h-full lg:h-8 bg-gradient-to-r lg:bg-gradient-to-b from-white"
+        >
+        </div>
+        <div
+          class="hidden lg:block pointer-events-none absolute bottom-0 right-0 z-10 w-5 lg:w-full h-full lg:h-6 bg-gradient-to-l lg:bg-gradient-to-t from-white"
+        >
+        </div>
+
+        <button
+          class="lg:hidden w-6 bg-gray-50 border-r border-b border-gray-100 text-gray-600 disabled:text-gray-200 flex items-center justify-center"
+          :disabled="scrolledLeft"
+          @click="scrollLeft"
+          disabled="disabled"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+            class="w-5 h-5"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M12.79 5.23a.75.75 0 01-.02 1.06L8.832 10l3.938 3.71a.75.75 0 11-1.04 1.08l-4.5-4.25a.75.75 0 010-1.08l4.5-4.25a.75.75 0 011.06.02z"
+              clip-rule="evenodd"></path>
+          </svg>
+        </button>
+
+        <ul
+          id="feature-nav"
+          class="flex-1 divide-x lg:divide-x-0 lg:divide-y divide-gray-100 max-h-full overflow-x-auto lg:overflow-x-visible lg:overflow-y-auto lg:overscroll-y-contain flex lg:block whitespace-nowrap text-sm lg:text-base"
+          @scroll.throttle.50ms="updateScrollPosition"
+        >
+          <li>
+            <a
+              href="#list-building"
+              class="text-left p-4 lg:py-6 flex items-center gap-3 bg-white text-gray-800"
+              :class="tab === 'list-building' ? 'bg-white text-gray-800' : 'border-b lg:border-b-0 lg:border-r border-gray-100 bg-gray-50 text-gray-700 hover:bg-white'"
+              @click.prevent="changeTab('list-building')"
+            >
+               
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 stroke-cyan-500">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 7.5v3m0 0v3m0-3h3m-3 0h-3m-2.25-4.125a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zM4 19.235v-.11a6.375 6.375 0 0112.75 0v.109A12.318 12.318 0 0110.374 21c-2.331 0-4.512-.645-6.374-1.766z" />
+              </svg>
+              
+              <span class="font-medium">List Building</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="#evergreen-campaign"
+              class="text-left p-4 lg:py-6 flex items-center gap-3 border-b lg:border-b-0 lg:border-r border-gray-100 bg-gray-50 text-gray-700 hover:bg-white"
+              :class="tab === 'evergreen-campaign' ? 'bg-white text-gray-800' : 'border-b lg:border-b-0 lg:border-r border-gray-100 bg-gray-50 text-gray-700 hover:bg-white'"
+              @click.prevent="changeTab('evergreen-campaign')"
+            >
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 stroke-cyan-500">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12c0-1.232-.046-2.453-.138-3.662a4.006 4.006 0 00-3.7-3.7 48.678 48.678 0 00-7.324 0 4.006 4.006 0 00-3.7 3.7c-.017.22-.032.441-.046.662M19.5 12l3-3m-3 3l-3-3m-12 3c0 1.232.046 2.453.138 3.662a4.006 4.006 0 003.7 3.7 48.656 48.656 0 007.324 0 4.006 4.006 0 003.7-3.7c.017-.22.032-.441.046-.662M4.5 12l3 3m-3-3l-3 3" />
+              </svg>
+              
+              <span class="font-medium">Evergreen Campaign</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="#bot-automation"
+              class="text-left p-4 lg:py-6 flex items-center gap-3 border-b lg:border-b-0 lg:border-r border-gray-100 bg-gray-50 text-gray-700 hover:bg-white"
+              :class="tab === 'bot-automation' ? 'bg-white text-gray-800' : 'border-b lg:border-b-0 lg:border-r border-gray-100 bg-gray-50 text-gray-700 hover:bg-white'"
+              @click.prevent="changeTab('bot-automation')"
+            >
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 stroke-cyan-500">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M7.5 8.25h9m-9 3H12m-9.75 1.51c0 1.6 1.123 2.994 2.707 3.227 1.129.166 2.27.293 3.423.379.35.026.67.21.865.501L12 21l2.755-4.133a1.14 1.14 0 01.865-.501 48.172 48.172 0 003.423-.379c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z" />
+              </svg>
+              
+              <span class="font-medium">Automation with BOT</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="#campaign-with-ai"
+              class="text-left p-4 lg:py-6 flex items-center gap-3 border-b lg:border-b-0 lg:border-r border-gray-100 bg-gray-50 text-gray-700 hover:bg-white"
+              :class="tab === 'campaign-with-ai' ? 'bg-white text-gray-800' : 'border-b lg:border-b-0 lg:border-r border-gray-100 bg-gray-50 text-gray-700 hover:bg-white'"
+              @click.prevent="changeTab('campaign-with-ai')"
+            >
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 stroke-cyan-500">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5zm0 0v-3.675A55.378 55.378 0 0112 8.443m-7.007 11.55A5.981 5.981 0 006.75 15.75v-1.5" />
+              </svg>
+              
+              <span class="font-medium">Campaign with AI</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="#chat-gpt-assistant"
+              class="text-left p-4 lg:py-6 flex items-center gap-3 border-b lg:border-b-0 lg:border-r border-gray-100 bg-gray-50 text-gray-700 hover:bg-white"
+              :class="tab === 'chat-gpt-assistant' ? 'bg-white text-gray-800' : 'border-b lg:border-b-0 lg:border-r border-gray-100 bg-gray-50 text-gray-700 hover:bg-white'"
+              @click.prevent="changeTab('chat-gpt-assistant')"
+            >
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 stroke-cyan-500">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 18v-5.25m0 0a6.01 6.01 0 001.5-.189m-1.5.189a6.01 6.01 0 01-1.5-.189m3.75 7.478a12.06 12.06 0 01-4.5 0m3.75 2.383a14.406 14.406 0 01-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 10-7.517 0c.85.493 1.509 1.333 1.509 2.316V18" />
+              </svg>
+              
+              <span class="font-medium">Chat GPT Assistant</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="#crm"
+              class="text-left p-4 lg:py-6 flex items-center gap-3 border-b lg:border-b-0 lg:border-r border-gray-100 bg-gray-50 text-gray-700 hover:bg-white"
+              :class="tab === 'crm' ? 'bg-white text-gray-800' : 'border-b lg:border-b-0 lg:border-r border-gray-100 bg-gray-50 text-gray-700 hover:bg-white'"
+              @click.prevent="changeTab('crm')"
+            >
+            
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 stroke-cyan-500">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z" />
+              </svg>
+              
+              
+              <span class="font-medium">CRM</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="#pos"
+              class="text-left p-4 lg:py-6 flex items-center gap-3 border-b lg:border-b-0 lg:border-r border-gray-100 bg-gray-50 text-gray-700 hover:bg-white"
+              :class="tab === 'pos' ? 'bg-white text-gray-800' : 'border-b lg:border-b-0 lg:border-r border-gray-100 bg-gray-50 text-gray-700 hover:bg-white'"
+              @click.prevent="changeTab('pos')"
+            >
+            
+            
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 stroke-cyan-500">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
+              </svg>
+              
+              
+              
+              <span class="font-medium">Online POS</span>
+            </a>
+          </li>
+        </ul>
+
+        <button
+          class="lg:hidden w-6 bg-gray-50 border-l border-b border-gray-100 text-gray-600 disabled:text-gray-200 flex items-center justify-center"
+          :disabled="scrolledRight"
+          @click="scrollRight"
+          disabled="disabled"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+            class="w-5 h-5"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z"
+              clip-rule="evenodd"></path>
+          </svg>
+        </button>
+      </nav>
+
+      <div class="flex-1 overflow-y-auto">
+        <div x-init="tabs.push('list-building')"></div>
+
+        <div class="p-5 md:p-8 lg:px-12" x-show="tab === 'list-building'">
+          <h3 class="font-bold text-2xl">List Building</h3>
+          <div
+            class="mt-4 leading-relaxed [&_pre]:bg-[#161414] [&_pre_code.torchlight]:!bg-[#161414] [&_pre]:leading-8 [&_pre]:p-2 [&_a]:text-red-600 [&_a]:underline hover:[&_a]:no-underline [&_strong]:font-medium [&_ul]:list-disc [&_ul]:ml-4 space-y-4"
+          >
+            <p>
+              List Building adalah proses mengumpulkan kontak (nama dan nomor WA) dari calon pelanggan atau
+              pelanggan yang sudah ada. Tujuannya adalah untuk terus
+              berkomunikasi, memberikan informasi, dan menawarkan produk atau
+              layanan kepada mereka.
+            </p>
+            <!-- @ts-ignore:next-line -->
+            <Image src={ListBuilding} alt="Image" format="avif" />
+            <p>
+              Gunakan Dripsender BOT untuk menyimpan Kontak secara Otomatis ke
+              dalam List ketika ada calon pelanggan menghubungi anda.
+            </p>
+              <!-- @ts-ignore:next-line -->
+            <Image src={RewardListBuilding} alt="Image" format="avif" />
+          </div>
+        </div>
+
+        <div x-init="tabs.push('evergreen-campaign')"></div>
+
+        <div
+          class="p-5 md:p-8 lg:px-12"
+          x-show="tab === 'evergreen-campaign'"
+          style="display: none;"
+        >
+          <h3 class="font-bold text-2xl">Evergreen Campaign</h3>
+          <div
+            class="mt-4 leading-relaxed [&_pre]:bg-[#161414] [&_pre_code.torchlight]:!bg-[#161414] [&_pre]:leading-8 [&_pre]:p-2 [&_a]:text-red-600 [&_a]:underline hover:[&_a]:no-underline [&_strong]:font-medium [&_ul]:list-disc [&_ul]:ml-4 space-y-4"
+          >
+            <p>
+              Dengan Evergreen Campaign anda bisa mengotomasi proses Follow up. Setelah Lead masuk ke dalam List anda, pesan serial akan dikirim terus dalam rentang waktu tertentu sampai CLOSING.
+            </p>
+            <!-- @ts-ignore:next-line -->
+            <Image src={EvergreenCampaign} alt="Image" format="avif" />
+            <p>Evergreen Campaign juga bisa dihentikan jika misal Calon Buyer sudah memutuskan untuk menjadi Pembeli pada Pesan kedua. Pesan ketiga dan seterusnya tidak perlu dikirimkan lagi. Ini akan membuat pesan menjadi lebih relevan dan tidak mengganggu.
+            </p>
+          </div>
+        </div>
+
+        <div x-init="tabs.push('bot-automation')"></div>
+
+        <div
+          class="p-5 md:p-8 lg:px-12"
+          x-show="tab === 'bot-automation'"
+          style="display: none;"
+        >
+          <h3 class="font-bold text-2xl">Automation with BOT</h3>
+          <div
+            class="mt-4 leading-relaxed [&_pre]:bg-[#161414] [&_pre_code.torchlight]:!bg-[#161414] [&_pre]:leading-8 [&_pre]:p-2 [&_a]:text-red-600 [&_a]:underline hover:[&_a]:no-underline [&_strong]:font-medium [&_ul]:list-disc [&_ul]:ml-4 space-y-4"
+          >
+            <p>
+              Dripsender BOT akan membaca semua pesan yang masuk. Jika ada
+              Keyword yang sesuai dengan text pesan, maka secara OTOMATIS akan
+              mentrigger Action yang anda set.
+            </p>
+            <!-- @ts-ignore:next-line -->
+            <Image src={DripsenderBot} alt="Image" format="avif" />
+          </div>
+        </div>
+
+        <div x-init="tabs.push('campaign-with-ai')"></div>
+
+        <div
+          class="p-5 md:p-8 lg:px-12"
+          x-show="tab === 'campaign-with-ai'"
+          style="display: none;"
+        >
+          <h3 class="font-bold text-2xl">Campaign with AI</h3>
+          <div
+            class="mt-4 leading-relaxed [&_pre]:bg-[#161414] [&_pre_code.torchlight]:!bg-[#161414] [&_pre]:leading-8 [&_pre]:p-2 [&_a]:text-red-600 [&_a]:underline hover:[&_a]:no-underline [&_strong]:font-medium [&_ul]:list-disc [&_ul]:ml-4 space-y-4"
+          >
+            <p>Gak Jago Nulis, Tapi Mau buat tulisan menghipnotis?</p>
+            <p>
+              Tidak perlu lagi menjadi seorang ahli dalam menulis, karena kami
+              telah menggabungkan teknologi AI terdepan dengan kreativitasmu.
+              Sekarang, dengan mudahnya, Anda bisa membuat kata-kata yang
+              menggugah, penuh daya tarik, dan menjual tanpa perlu repot-repot
+              memikirkan setiap kata yang harus ditulis.
+            </p>
+            <p>Begini caranya:</p>
+            <p>
+              1. Cukup tuliskan sedikit informasi tentang produk atau
+              kampanyemu.
+            </p>
+            <p>
+              2. Kemudian, berikan panduan singkat tentang gaya, nada, dan pesan
+              yang ingin Anda sampaikan.
+            </p>
+            <p>
+              3. Biarkan AI kami mengambil alih dan menghasilkan teks yang luar
+              biasa sesuai dengan panduanmu!
+            </p>
+            <p>
+              Tunggu apa lagi? Segera coba layanan kami yang revolusioner ini
+              dan rasakan sendiri bagaimana AI dapat membantu Anda menghadirkan
+              kata-kata yang mendalam dan mengesankan.
+            </p>
+            <p>Hemat waktu, tenaga, dan pastinya pikiranmu!</p>
+          </div>
+        </div>
+
+        <div x-init="tabs.push('chat-gpt-assistant')"></div>
+
+        <div
+          class="p-5 md:p-8 lg:px-12"
+          x-show="tab === 'chat-gpt-assistant'"
+          style="display: none;"
+        >
+          <h3 class="font-bold text-2xl">CHAT GPT Assistant</h3>
+          <div
+            class="mt-4 leading-relaxed [&_pre]:bg-[#161414] [&_pre_code.torchlight]:!bg-[#161414] [&_pre]:leading-8 [&_pre]:p-2 [&_a]:text-red-600 [&_a]:underline hover:[&_a]:no-underline [&_strong]:font-medium [&_ul]:list-disc [&_ul]:ml-4 space-y-4"
+          >
+          <p>Inovasi Terbaru: Temukan Keajaiban Chat GPT Assistant!</p>
+
+          <p>Selamat tinggal, kerepotan! Sapa duniamu yang baru dengan CHAT GPT Assistant, jawaban atas semua kebutuhan WhatsApp-mu. Apakah kamu bosan membalas satu per satu pesan? Biarkan CHAT GPT Assistant mengambil alih dan menjawab semua pesan masuk dengan kecerdasan buatan yang luar biasa!</p>
+          
+         <div> 🚀 Fitur Unggulan:</div>
+         <div> ✓ Balas Otomatis yang Menakjubkan: Tak perlu lagi repot membalas pesan satu per satu. CHAT GPT Assistant dengan canggih akan memberikan tanggapan instan yang sesuai dengan gaya dan konteks percakapan.</div>
+          <div>✓ Kecerdasan Buatan Terkini: Didukung oleh teknologi GPT-3.5, asisten pintar kami memahami maksud di balik pesan dan menghasilkan respons yang alami serta relevan.</div>
+         <div> ✓ Penyesuaian yang Tanpa Batas: Atur preferensi dan gaya komunikasimu. CHAT GPT Assistant akan memastikan setiap jawaban terdengar sepenuhnya seperti dirimu.</div>
+         <div> ✓ Efisiensi Luar Biasa: Hemat waktu berharga dengan mengizinkan asisten kami menangani pesan rutin, sehingga kamu bisa fokus pada hal-hal penting lainnya.</div>
+          
+         <div> 💡 Cara Kerja:</div>
+        <div>  1. Aktifkan CHAT GPT Assistant di Akun Dripsender anda.</div>
+         <div> 2. Lihat aja keajaiban terjadi saat asisten kami mengenali dan merespons setiap pesan masuk dengan akurasi dan kecerdasan yang mengagumkan.</div>
+        <div>  3. Nikmati kebebasan untuk berinteraksi lebih banyak dengan orang-orang penting dalam hidupmu.</div>
+          
+        <p>  Jadikan WhatsAppmu lebih pintar dan efisien dengan CHAT GPT Assistant hari ini juga! Bergabunglah dengan revolusi komunikasi baru yang mengubah cara kita berinteraksi. Dapatkan CHAT GPT Assistant sekarang dan saksikan betapa luar biasanya teknologi ini!</p>
+          </div>
+        </div>
+
+        <div x-init="tabs.push('crm')"></div>
+
+        <div
+          class="p-5 md:p-8 lg:px-12"
+          x-show="tab === 'crm'"
+          style="display: none;"
+        >
+          <h3 class="font-bold text-2xl">Customer Relationship Management (CRM): Kunci Sukses Bisnis Anda!</h3>
+          <div
+            class="mt-4 leading-relaxed [&_pre]:bg-[#161414] [&_pre_code.torchlight]:!bg-[#161414] [&_pre]:leading-8 [&_pre]:p-2 [&_a]:text-red-600 [&_a]:underline hover:[&_a]:no-underline [&_strong]:font-medium [&_ul]:list-disc [&_ul]:ml-4 space-y-4"
+          >
+         
+<p>Apakah Anda tahu apa yang membedakan bisnis yang sukses dari yang biasa-biasa saja? Jawabannya ada pada hubungan yang mereka bangun dengan pelanggan!</p>
+
+<p>CRM bukan hanya sekedar alat atau software, namun merupakan strategi bisnis yang revolusioner. Fokus utamanya? Ya, pelanggan setia!</p>
+
+<p>🚀 <strong>Keunggulan CRM</strong> 🚀</p>
+<p>1. <strong>Kenali Pelanggan Lebih Dalam:</strong> Pelajari kebutuhan, selera, dan perilaku pelanggan Anda dengan akurasi yang tak tertandingi.</p>
+<p>2. <strong>Interaksi yang Berarti:</strong> Setiap interaksi Anda dengan pelanggan kini menjadi lebih personal dan berdampak.</p>
+<p>3. <strong>Efisiensi Maksimal:</strong> Hemat waktu, sumber daya, dan tenaga dengan mengotomatisasi proses bisnis Anda.</p>
+<p>4. <strong>Penjualan Meningkat:</strong> Dengan hubungan pelanggan yang kuat, loyalitas dan retensi meningkat, dan begitu juga penjualan!</p>
+
+<p>✨ <strong>Transformasi Bisnis Anda</strong> ✨</p>
+
+<p>Berpikir untuk mengambil langkah besar dalam bisnis? Membangun hubungan yang mendalam dengan pelanggan adalah kuncinya. CRM membantu Anda mencapai itu.</p>
+
+<p>Investasikan pada CRM sekarang, dan saksikan bisnis Anda tumbuh dan berkembang lebih dari yang Anda bayangkan!</p>
+
+<p><strong>Karena bisnis terbaik adalah bisnis yang mengerti hati pelanggannya.</strong></p>
+ 
+          </div>
+        </div>
+
+        <div x-init="tabs.push('pos')"></div>
+
+        <div
+          class="p-5 md:p-8 lg:px-12"
+          x-show="tab === 'pos'"
+          style="display: none;"
+        >
+          <h3 class="font-bold text-2xl">Online POS</h3>
+          <div
+            class="mt-4 leading-relaxed [&_pre]:bg-[#161414] [&_pre_code.torchlight]:!bg-[#161414] [&_pre]:leading-8 [&_pre]:p-2 [&_a]:text-red-600 [&_a]:underline hover:[&_a]:no-underline [&_strong]:font-medium [&_ul]:list-disc [&_ul]:ml-4 space-y-4"
+          >
+        <p>  "Optimalkan bisnis Anda dengan platform POS online kami yang inovatif! Kami telah menyediakan fitur-fitur khusus untuk membantu Anda dalam mengelola usaha dengan lebih efisien:</p>
+
+         <p> 1. <strong>Pembayaran Lebih Mudah, Pilihan Lebih Banyak :</strong> Nikmati kemudahan menerima pembayaran melalui berbagai metode, termasuk QRIS, transfer bank, virtual account, dan gerai Indomaret/Alfamart. Dengan pilihan yang beragam, Anda dapat menjangkau lebih banyak pelanggan dengan mudah.</p>
+          
+         <p> 2. <strong>Pantau Transaksi dengan Notifikasi Otomatis : </strong> Kami tahu betapa pentingnya mengawasi setiap transaksi. Oleh karena itu, sistem kami mengirimkan notifikasi otomatis setiap kali ada transaksi berhasil. Ini membantu Anda merespon dengan cepat dan mengelola stok serta pesanan dengan lebih baik.</p>
+          
+         <p> 3. <strong>Informasi Pengantaran yang Lebih Terstruktur : </strong> Dengan notifikasi otomatis mengenai status pengantaran barang, Anda dapat memberikan informasi yang lebih jelas kepada pelanggan. Hal ini membantu Anda membangun kepercayaan dan meningkatkan kepuasan pelanggan.</p>
+          <!-- @ts-ignore -->
+         <Image src={DiagramPOS} alt="Image" format="avif" />
+         <p> Manfaatkan kemudahan dan efisiensi dari platform POS online kami untuk mengembangkan bisnis Anda. Kami berkomitmen untuk memberikan alat yang Anda butuhkan agar bisnis Anda dapat berjalan lebih lancar dan sukses. Bergabunglah sekarang dan tingkatkan kinerja usaha Anda bersama kami!"</p>
+ 
+          </div>
+        </div>
+
+        
+
+         
+
+        
+      </div>
+    </div>
+  </div>
+</div>

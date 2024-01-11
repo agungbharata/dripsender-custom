@@ -1,0 +1,17 @@
+---
+import Hero from "../components/Hero.astro";
+import Benefit from "../components/Benefit.astro";
+import Cta from "../components/Cta.astro";
+import MainLayout from "../layouts/MainLayout.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+import BestFeatures from "../components/BestFeatures.astro";
+---
+
+<MainLayout title={SITE_TITLE}>
+  <main>
+    <Hero />
+    <Benefit />
+    <BestFeatures />
+    <Cta />
+  </main>
+</MainLayout>

@@ -1,0 +1,12 @@
+---
+import Hero from "../components/Hero.astro";
+import Value from "../components/Value.astro";
+import MainLayout from "../layouts/MainLayout.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+---
+
+<MainLayout title={SITE_TITLE}>
+  <main>
+    <Value />
+  </main>
+</MainLayout>
